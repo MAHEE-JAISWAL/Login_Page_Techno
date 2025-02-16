@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import config from '../config';
 import '../auth.css';
 
 function Signup() {
@@ -13,6 +14,7 @@ function Signup() {
     mobile: '',
     password: '',
   });
+  const [message, setMessage] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,11 +23,29 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/users/signup', formData);
+      // Convert mobile to a number
+      const formDataWithNumber = {
+        ...formData,
+        mobile: Number(formData.mobile.replace(/[^0-9]/g, '')), // Remove non-numeric characters
+      };
+
+      const response = await axios.post(`${config.apiBaseUrl}/signup`, formDataWithNumber);
       console.log(response.data);
+      setMessage('Signup successful');
+      // Clear form fields
+      setFormData({
+        name: '',
+        usn: '',
+        email: '',
+        section: '',
+        department: '',
+        mobile: '',
+        password: '',
+      });
       // Handle successful signup (e.g., redirect to login)
     } catch (error) {
       console.error('Error signing up:', error.response.data);
+      setMessage('Error signing up');
     }
   };
 
@@ -51,6 +71,7 @@ function Signup() {
           Already have an account? <Link to="/">Login</Link>
         </p>
       </form>
+      {message && <div className="message-popup">{message}</div>}
     </div>
   );
 }

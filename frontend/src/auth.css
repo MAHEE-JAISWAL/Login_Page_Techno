@@ -63,3 +63,12 @@ button:hover {
 .auth-link a:hover {
   text-decoration: underline;
 }
+
+.message-popup {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  text-align: center;
+}

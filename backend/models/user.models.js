@@ -40,7 +40,6 @@ const UserSchema = new mongoose.Schema({
     mobile: {
         type: Number,
         required: true,
-        unique: true,
         validate: {
             validator: Number.isInteger,
             message: 'Mobile number must be an integer',
