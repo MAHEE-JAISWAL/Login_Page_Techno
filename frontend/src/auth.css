@@ -1,0 +1,65 @@
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000; /* Set background to black */
+}
+
+.auth-form {
+  background-color: transparent; /* Remove form box */
+  padding: 2rem;
+  border-radius: 8px;
+  width: 300px;
+}
+
+.auth-form h2 {
+  margin-bottom: 1.5rem;
+  color: #007bff;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #fff; /* Set label color to white */
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.auth-link {
+  margin-top: 1rem;
+  color: #fff; /* Set link color to white */
+}
+
+.auth-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
